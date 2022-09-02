@@ -1,0 +1,21 @@
+{
+  "name": "api-do-mercadinho",
+  "version": "1.0.0",
+  "description": "O Sr. Antônio possui um mercadinho em seu bairro, porém ele ainda faz o controle de estoque utilizando papel e caneta, existe uma equipe de front-end que está preparando uma interface web para que o Sr. Antônio consiga fazer o cadastro e controle dos produtos que estão em seu estoque, porém essa equipe precisa de uma API que acesse o banco de dados para persistir os dados e fazer um controle melhor da aplicação.\r Sendo assim, construa uma API que faça o CRUD completo de uma tabela chamada Produtos, utilizando NodeJS, Express e MongoDB Atlas, sua API deve conter obrigatóriamente esses requisitos:",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DouglasVolcato/api-do-mercadinho.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DouglasVolcato/api-do-mercadinho/issues"
+  },
+  "homepage": "https://github.com/DouglasVolcato/api-do-mercadinho#readme"
+}
