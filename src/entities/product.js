@@ -11,9 +11,7 @@ export class Product {
   }
 
   validate() {
-    if (!product) {
-      throw new Error("Invalid product");
-    } else if (!this.name || !this.price || !this.quantity) {
+    if (!product || !this.name || !this.price || !this.quantity) {
       throw new Error(
         "Make sure your product contains at least name, price and quantity fields."
       );
