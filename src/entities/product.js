@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 
 export class Product {
   constructor(product) {
+    this.product = product
     this.id = randomUUID();
     this.name = product.name;
     this.price = product.price;
@@ -11,7 +12,7 @@ export class Product {
   }
 
   validate() {
-    if (!product || !this.name || !this.price || !this.quantity) {
+    if (!this.product || !this.name || !this.price || !this.quantity) {
       throw new Error(
         "Make sure your product contains at least name, price and quantity fields."
       );
@@ -22,7 +23,7 @@ export class Product {
     return {
       id: this.id,
       name: this.name,
-      price: this.id,
+      price: this.price,
       quantity: this.quantity,
       brand: this.brand,
       photo: this.photo,
