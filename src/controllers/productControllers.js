@@ -36,7 +36,7 @@ export class ProductControllers {
     } catch (err) {
       res
         .status(400)
-        .send({ message: "There was an error creating the product." + err });
+        .send({ message: "There was an error creating the product. \n" + err });
     }
   }
 
@@ -67,7 +67,7 @@ export class ProductControllers {
     } catch (err) {
       res
         .status(400)
-        .send({ message: "There was an error updating the product." });
+        .send({ message: "There was an error updating the product. \n" + err });
     }
   }
 
@@ -87,9 +87,9 @@ export class ProductControllers {
         res.status(404).send({ message: "Product not found." });
       }
     } catch (err) {
-      res
-        .status(400)
-        .send({ message: "There was a problem deleting the product." });
+      res.status(400).send({
+        message: "There was a problem deleting the product. \n" + err,
+      });
     }
   }
 
@@ -111,7 +111,7 @@ export class ProductControllers {
     } catch (err) {
       res
         .status(400)
-        .send({ message: "There was a problem finding the product." });
+        .send({ message: "There was a problem finding the product. \n" + err });
     }
   }
 
@@ -127,7 +127,9 @@ export class ProductControllers {
     } catch (err) {
       res
         .status(400)
-        .send({ message: "There was a problem finding the products." });
+        .send({
+          message: "There was a problem finding the products. \n" + err,
+        });
     }
   }
 }
