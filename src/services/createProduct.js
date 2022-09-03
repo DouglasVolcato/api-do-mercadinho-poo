@@ -8,7 +8,6 @@ export class CreateProductUseCase {
   async execute(body) {
     const newProduct = new Product(body);
     newProduct.validate();
-    console.log(newProduct.getProduct());
     return await this.repository.create(newProduct.getProduct());
   }
 }
