@@ -22,6 +22,9 @@ export function makeProductFactory(router) {
   const getAllProductsUseCase = new productServices.GetAllProductsUseCase(
     productRepository
   );
+  const getProductByNameUseCase = new productServices.GetProductByNameUseCase(
+    productRepository
+  );
 
   const verifyBodyUseCase = new productMiddlewares.VerifyBodyUseCase();
   const verifyItensUseCase = new productMiddlewares.VerifyItensUseCase();
@@ -34,6 +37,7 @@ export function makeProductFactory(router) {
       deleteProductUseCase,
       getProductByIdUseCase,
       getAllProductsUseCase,
+      getProductByNameUseCase,
     },
     {
       verifyBodyUseCase,
