@@ -1,4 +1,4 @@
-export class GetProductById {
+export class GetProductByIdUseCase {
   constructor(repository) {
     this.repository = repository;
   }
