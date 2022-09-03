@@ -8,9 +8,9 @@ export class ProductControllers {
     try {
       const body = req.body;
 
-      middlewares.verifyBodyUseCase.execute(body);
+      this.middlewares.verifyBodyUseCase.execute(body);
 
-      const newProduct = await services.createProductUseCase.execute({
+      const newProduct = await this.services.createProductUseCase.execute({
         name: body.name,
         price: body.price,
         quantity: body.quantity,
@@ -28,7 +28,7 @@ export class ProductControllers {
     } catch (err) {
       res
         .status(400)
-        .send({ message: "There was an error creating the product." });
+        .send({ message: "There was an error creating the product." + err });
     }
   }
 
@@ -37,10 +37,10 @@ export class ProductControllers {
       const body = req.body;
       const params = req.params;
 
-      middlewares.verifyIdUseCase.execute(params);
-      middlewares.verifyItensUseCase.execute(body);
+      this.middlewares.verifyIdUseCase.execute(params);
+      this.middlewares.verifyItensUseCase.execute(body);
 
-      const updatedProduct = await services.updateProductUseCase.execute(
+      const updatedProduct = await this.services.updateProductUseCase.execute(
         params.id,
         {
           name: body.name,
@@ -67,9 +67,9 @@ export class ProductControllers {
     try {
       const params = req.params;
 
-      middlewares.verifyIdUseCase.execute(params);
+      this.middlewares.verifyIdUseCase.execute(params);
 
-      const deletedProduct = await services.deleteProductUseCase.execute(
+      const deletedProduct = await this.services.deleteProductUseCase.execute(
         params.id
       );
 
@@ -89,9 +89,9 @@ export class ProductControllers {
     try {
       const params = req.params;
 
-      middlewares.verifyIdUseCase.execute(params);
+      this.middlewares.verifyIdUseCase.execute(params);
 
-      const foundProduct = await services.getProductByIdUseCase.execute(
+      const foundProduct = await this.services.getProductByIdUseCase.execute(
         params.id
       );
 
@@ -109,7 +109,7 @@ export class ProductControllers {
 
   async getAllProductsController(req, res) {
     try {
-      const products = await services.getAllProductsUseCase.execute();
+      const products = await this.services.getAllProductsUseCase.execute();
 
       if (products) {
         res.status(200).send(products);
