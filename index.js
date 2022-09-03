@@ -1,9 +1,9 @@
 import express, { Router } from "express";
 import cors from "cors";
 import { config } from "dotenv";
-import { MongoDbConnection } from "./src/database/connection.js";
+import { MongoDbConnection } from "./src/database/connection/connect.js";
 import { makeProductFactory } from "./src/factories/productFactory.js";
-import { Port } from "./src/ports/port";
+import { Port } from "./src/ports/port.js";
 
 config();
 MongoDbConnection.connectDb();
