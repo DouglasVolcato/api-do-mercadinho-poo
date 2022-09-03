@@ -22,4 +22,8 @@ export class ProductRepository {
       new: true,
     });
   }
+
+  async getByName(nameProduct) {
+    return await productModel.findOne({ name: nameProduct });
+  }
 }
