@@ -46,8 +46,8 @@ export class ProductControllers {
           name: body.name,
           price: body.price,
           quantity: body.quantity,
-          brand: body.brand ?? "",
-          photo: body.photo ?? "",
+          brand: body.brand,
+          photo: body.photo,
         }
       );
 
