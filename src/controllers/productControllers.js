@@ -10,20 +10,28 @@ export class ProductControllers {
 
       this.middlewares.verifyBodyUseCase.execute(body);
 
-      const newProduct = await this.services.createProductUseCase.execute({
-        name: body.name,
-        price: body.price,
-        quantity: body.quantity,
-        brand: body.brand ?? "",
-        photo: body.photo ?? "",
-      });
+      const foundUser = await this.services.getProductByNameUseCase.execute(
+        body.name
+      );
 
-      if (newProduct) {
-        res.status(200).send(newProduct);
+      if (!foundUser) {
+        const newProduct = await this.services.createProductUseCase.execute({
+          name: body.name,
+          price: body.price,
+          quantity: body.quantity,
+          brand: body.brand ?? "",
+          photo: body.photo ?? "",
+        });
+
+        if (newProduct) {
+          res.status(200).send(newProduct);
+        } else {
+          res
+            .status(400)
+            .send({ message: "There was an error creating the product." });
+        }
       } else {
-        res
-          .status(400)
-          .send({ message: "There was an error creating the product." });
+        res.status(400).send({ message: "Product name already exists." });
       }
     } catch (err) {
       res
