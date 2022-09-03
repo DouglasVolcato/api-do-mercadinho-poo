@@ -125,11 +125,9 @@ export class ProductControllers {
         res.status(404).send({ message: "Products not found." });
       }
     } catch (err) {
-      res
-        .status(400)
-        .send({
-          message: "There was a problem finding the products. \n" + err,
-        });
+      res.status(400).send({
+        message: "There was a problem finding the products. \n" + err,
+      });
     }
   }
 }
