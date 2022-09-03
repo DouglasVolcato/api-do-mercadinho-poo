@@ -11,8 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/DouglasVolcato/api-do-mercadinho.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["CRUD", "Backend", "POO"],
+  "author": "Douglas Volcato",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DouglasVolcato/api-do-mercadinho/issues"
