@@ -1,6 +1,3 @@
-import * as middlewares from "../middlewares/middlewares.index";
-import * as services from "../services/services.index";
-
 export class ProductControllers {
   constructor(services, middlewares) {
     this.services = services;
