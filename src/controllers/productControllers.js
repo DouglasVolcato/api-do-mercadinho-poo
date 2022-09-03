@@ -8,9 +8,9 @@ export class ProductControllers {
     try {
       const body = req.body;
 
-      middlewares.VerifyBodyUseCase.execute(body);
+      middlewares.verifyBodyUseCase.execute(body);
 
-      const newProduct = await services.CreateProductUseCase.execute({
+      const newProduct = await services.createProductUseCase.execute({
         name: body.name,
         price: body.price,
         quantity: body.quantity,
@@ -37,10 +37,10 @@ export class ProductControllers {
       const body = req.body;
       const params = req.params;
 
-      middlewares.VerifyIdUseCase.execute(params);
-      middlewares.VerifyItensUseCase.execute(body);
+      middlewares.verifyIdUseCase.execute(params);
+      middlewares.verifyItensUseCase.execute(body);
 
-      const updatedProduct = await services.UpdateProductUseCase.execute(
+      const updatedProduct = await services.updateProductUseCase.execute(
         params.id,
         {
           name: body.name,
@@ -67,9 +67,9 @@ export class ProductControllers {
     try {
       const params = req.params;
 
-      middlewares.VerifyIdUseCase.execute(params);
+      middlewares.verifyIdUseCase.execute(params);
 
-      const deletedProduct = await services.DeleteProductUseCase.execute(
+      const deletedProduct = await services.deleteProductUseCase.execute(
         params.id
       );
 
@@ -89,9 +89,9 @@ export class ProductControllers {
     try {
       const params = req.params;
 
-      middlewares.VerifyIdUseCase.execute(params);
+      middlewares.verifyIdUseCase.execute(params);
 
-      const foundProduct = await services.GetProductByIdUseCase.execute(
+      const foundProduct = await services.getProductByIdUseCase.execute(
         params.id
       );
 
@@ -109,7 +109,7 @@ export class ProductControllers {
 
   async getAllProductsController(req, res) {
     try {
-      const products = await services.GetAllProductsUseCase.execute();
+      const products = await services.getAllProductsUseCase.execute();
 
       if (products) {
         res.status(200).send(products);
