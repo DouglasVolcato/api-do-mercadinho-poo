@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 export class MongoDbConnection {
-  async connectDb() {
+  static async connectDb() {
     await mongoose
       .connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
