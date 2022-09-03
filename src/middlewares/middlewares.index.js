@@ -1,3 +1,3 @@
-export { VerifyBodyUseCase } from "./verifyBody";
-export { VerifyItensUseCase } from "./verifyItens";
-export { VerifyIdUseCase } from "./verifyId";
+export { VerifyBodyUseCase } from "./verifyBody.js";
+export { VerifyItensUseCase } from "./verifyItens.js";
+export { VerifyIdUseCase } from "./verifyId.js";
